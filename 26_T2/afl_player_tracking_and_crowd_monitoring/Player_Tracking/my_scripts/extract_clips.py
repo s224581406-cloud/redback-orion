@@ -16,8 +16,9 @@ CLIPS = [
 
 for start, end, name in CLIPS:
     subprocess.run([
-        "ffmpeg", "-i", VIDEO,
-        "-ss", start, "-to", end,
-        "-c", "copy", name
+        "ffmpeg", "-i", VIDEO, #input file
+        "-ss", start, "-to", end, #start timestamp
+        "-c", "copy", name 
+        # to copy the video/audio streams directly without re-encoding (fast, no quality loss)
     ])
     print(f"Created {name}")
